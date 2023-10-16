@@ -1,0 +1,81 @@
+<style>
+#bar {
+  display: flex;
+  font-size: 1.2em;
+  height: ;
+}
+
+#bar a, #bar button {
+  flex: 1;
+  text-decoration: none;
+  text-align: center;
+  border: 0.125vh solid var(--primary);
+  border-top: 0;
+  border-bottom: 0.25vh solid var(--primary);
+  vertical-align: middle;
+  display: inline-block;
+  line-height: normal;
+}
+
+#bar a:first-child {
+  border-left: 0;
+}
+
+#bar a:last-child {
+  border-right: 0;
+}
+
+#bar a:hover ,#bar button:hover {
+  background-color: var(--alt-secondary);
+}
+
+#bar a span{
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+
+#theme_button {
+  max-width: 2em;
+  min-width: 2em;
+}
+</style>
+
+<script>
+function toggle_theme() {
+  if (window.getComputedStyle(document.documentElement).getPropertyValue("--theme") == "\"light\"") {
+    document.documentElement.style.setProperty("--primary", "#E0E0E0");
+    document.documentElement.style.setProperty("--secondary", "black");
+    document.documentElement.style.setProperty("--alt-secondary", "#202020");
+    document.documentElement.style.setProperty("--theme", "\"dark\"");
+    document.getElementById("theme_button").innerHTML = "&#9728;&#65039;";
+  } else if (window.getComputedStyle(document.documentElement).getPropertyValue("--theme")  == "\"dark\"") {
+    document.documentElement.style.setProperty("--primary", "black");
+    document.documentElement.style.setProperty("--secondary", "#E0E0E0");
+    document.documentElement.style.setProperty("--alt-secondary", "white");
+    document.documentElement.style.setProperty("--theme", "\"light\"");
+    document.getElementById("theme_button").innerHTML = "&#127761;";
+  }
+}
+</script>
+
+<div id="bar">
+  <a href="/">Home</a>
+  <a href="/blog/">Blog</a>
+  <a href="/about/">About</a>
+  <button id="theme_button" onclick="toggle_theme()">&#127769;</button>
+</div>
+
+<script>
+if (window.getComputedStyle(document.documentElement).getPropertyValue("--theme") == "\"dark\"") {
+  document.documentElement.style.setProperty("--primary", "#E0E0E0");
+  document.documentElement.style.setProperty("--secondary", "black");
+  document.documentElement.style.setProperty("--alt-secondary", "#202020");
+  document.getElementById("theme_button").innerHTML = "&#9728;&#65039;";
+} else if (window.getComputedStyle(document.documentElement).getPropertyValue("--theme")  == "\"light\"") {
+  document.documentElement.style.setProperty("--primary", "black");
+  document.documentElement.style.setProperty("--secondary", "#E0E0E0");
+  document.documentElement.style.setProperty("--alt-secondary", "white");
+  document.getElementById("theme_button").innerHTML = " &#127761;";
+}
+</script>

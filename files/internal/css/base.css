@@ -1,0 +1,32 @@
+@media (prefers-color-scheme: light) {
+  :root {
+    --theme: "light";
+    --primary": black;
+    --secondary: #E0E0E0;
+    --alt-secondary: white;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme: "dark";
+    --primary: #E0E0E0;
+    --secondary: black;
+    --alt-secondary: #202020;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--primary);
+  background-color: var(--secondary);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body {
+  margin: 0;
+}
+
+#body {
+  margin: 8px;
+}
