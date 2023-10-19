@@ -1,20 +1,14 @@
-@import url("https://fonts.googleapis.com/css?family=Courier+Prime")
+@import url("https://fonts.googleapis.com/css?family=Courier+Prime");
 
 @media (prefers-color-scheme: light) {
   :root {
-    --theme: "light";
-    --primary": black;
-    --secondary: #E0E0E0;
-    --alt-secondary: white;
+    --preferred-theme: "light";
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --theme: "dark";
-    --primary: #E0E0E0;
-    --secondary: black;
-    --alt-secondary: #202020;
+    --preferred-theme: "dark";
   }
 }
 
