@@ -33,16 +33,23 @@ pre, p {
 }
 
 table {
-  display: block;
-}
-
-table {
-  border: 0.5vh solid var(--alt-secondary);
-  display: inline-block;
-}
-
-tbody {
-  padding: 0.1%;
   font-size: 1.3em;
-  display: inline-block;
+  border-collapse: collapse;
+  width:fit-content;
+  background-color: var(--alt-secondary);
+}
+
+td {
+  border: 0.1vw dashed var(--primary);
+  text-align: center;
+}
+
+td * {
+  margin: 0;
+  display: block;
+  padding: 10%;
+}
+
+table a {
+  text-decoration: none;
 }

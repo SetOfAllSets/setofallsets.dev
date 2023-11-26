@@ -19,7 +19,7 @@ function getCookie(cname) {
 function set_theme(theme) {
     if (theme == "dark") {
         let emoji = "&#9728;&#65039;";
-        document.documentElement.style.setProperty("--primary", "#E0E0E0");
+        document.documentElement.style.setProperty("--primary", "white");
         document.documentElement.style.setProperty("--secondary", "black");
         document.documentElement.style.setProperty("--alt-secondary", "#202020");
         document.cookie = "theme=dark ; expires=Tue, 19 Jan 2038 04:14:07 GMT; SameSite=Lax; path=/";
@@ -31,8 +31,8 @@ function set_theme(theme) {
     } else if (theme == "light") {
         let emoji = "&#127761;";
         document.documentElement.style.setProperty("--primary", "black");
-        document.documentElement.style.setProperty("--secondary", "#E0E0E0");
-        document.documentElement.style.setProperty("--alt-secondary", "white");
+        document.documentElement.style.setProperty("--secondary", "white");
+        document.documentElement.style.setProperty("--alt-secondary", "#dfdfdf");
         document.cookie = "theme=light ; expires=Tue, 19 Jan 2038 04:14:07 GMT; SameSite=Lax; path=/";
         try {
             document.getElementById("theme_button").innerHTML = emoji;
