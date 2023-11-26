@@ -15,12 +15,12 @@
 * {
   box-sizing: border-box;
   color: var(--primary);
-  background-color: var(--secondary);
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 body {
   margin: 0;
+  background-color: var(--secondary);
 }
 
 #body {
@@ -30,4 +30,19 @@ body {
 pre, p {
   font-family: "Courier Prime", serif;
   font-size: 1.1em;
+}
+
+table {
+  display: block;
+}
+
+table {
+  border: 0.5vh solid var(--alt-secondary);
+  display: inline-block;
+}
+
+tbody {
+  padding: 0.1%;
+  font-size: 1.3em;
+  display: inline-block;
 }

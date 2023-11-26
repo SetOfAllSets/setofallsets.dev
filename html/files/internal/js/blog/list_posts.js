@@ -8,13 +8,24 @@ async function getList() {
 let list = getList();
 (async () => {
     list = await list;
-    let html = document.createElement('table');
+    let table = document.createElement("table");
+    let tbody = document.createElement("tbody");
     for (let i = 1; i <= list.posts; i++) {
         console.log(list[i].path)
-        document.createElement("tr");
-        document.createElement("th");
-        
-        html.innerHTML += "<tr><th>" + i.toString() + "</th><th><a href=\"" + list[i].path + "\">" + list[i].name + "</a></th></tr>\n"
+        let tr = document.createElement("tr");
+        let number = document.createElement("td");
+        let link = document.createElement("td");
+        let linka = document.createElement("a");
+        let numberText = document.createTextNode(i.toString());
+        let linkText = document.createTextNode(list[i].name);
+        linka.setAttribute("href", list[i].path);
+        linka.appendChild(linkText);
+        number.appendChild(numberText)
+        link.appendChild(linka);
+        tr.appendChild(number);
+        tr.appendChild(link);
+        tbody.appendChild(tr)
     }
-    document.getElementById("post_table").replaceWith(html);
+    table.appendChild(tbody);
+    document.getElementById("post_table").replaceWith(table);
 })()
