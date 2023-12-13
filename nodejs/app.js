@@ -36,3 +36,9 @@ https.createServer({
     key: privateKey,
     cert: certificate
 }, app).listen(3000, () => console.log("running"));
+app.options('*', function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    res.end();
+  });
