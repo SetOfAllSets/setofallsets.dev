@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const https = require('node:https');
 const express = require('express');
 const fs = require('fs');
