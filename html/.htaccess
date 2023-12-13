@@ -1,4 +1,3 @@
 Options +IncludesNOEXEC
 AddType text/html .html
 AddOutputFilter INCLUDES .html
-Header set Access-Control-Allow-Origin "*"
