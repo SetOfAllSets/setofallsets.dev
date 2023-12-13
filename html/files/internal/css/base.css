@@ -31,25 +31,3 @@ pre, p {
   font-family: "Courier Prime", serif;
   font-size: 1.1em;
 }
-
-table {
-  font-size: 1.3em;
-  border-collapse: collapse;
-  width:fit-content;
-  background-color: var(--alt-secondary);
-}
-
-td {
-  border: 0.1vw dashed var(--primary);
-  text-align: center;
-}
-
-td * {
-  margin: 0;
-  display: block;
-  padding: 10%;
-}
-
-table a {
-  text-decoration: none;
-}
