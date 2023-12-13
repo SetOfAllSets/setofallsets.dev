@@ -3,6 +3,9 @@ const fs = require('fs');
 const app = express();
 var cors = require('cors');
 
+var privateKey = fs.readFileSync( '/etc/letsencrypt/live/setofallsets.dev/privkey.pem' );
+var certificate = fs.readFileSync( '/etc/letsencrypt/live/setofallsets.dev/fullchain.pem' );
+
 app.use(cors());
 
 let list = {}
@@ -26,6 +29,11 @@ function list_dir (directoryPath) {
 }
 
 list_dir("/var/www/html/blog/posts/");
+
+https.createServer({
+    key: privateKey,
+    cert: certificate
+}, app).listen(port);
 
 app.get('/api/blog_post_list', (req, res) => res.json(list));
 app.listen(3000, () => console.log("running"));
