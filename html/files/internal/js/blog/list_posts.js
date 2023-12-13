@@ -1,4 +1,5 @@
 async function getList() {
+    let response;
     try {
         let response = await fetch("https://" + hostname + ":3000/api/blog_post_list");
     }
