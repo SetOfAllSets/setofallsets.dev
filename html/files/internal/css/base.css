@@ -31,3 +31,8 @@ pre, p {
   font-family: "Courier Prime", serif;
   font-size: 1.1em;
 }
+
+th td {
+  border: 1px solid var(--primary);
+  text-align: center;
+}
