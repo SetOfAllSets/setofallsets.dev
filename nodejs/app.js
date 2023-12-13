@@ -31,10 +31,8 @@ function list_dir (directoryPath) {
 
 list_dir("/var/www/html/blog/posts/");
 
+app.get('/api/blog_post_list', (req, res) => res.json(list));
 https.createServer({
     key: privateKey,
     cert: certificate
-}, app).listen(port);
-
-app.get('/api/blog_post_list', (req, res) => res.json(list));
-app.listen(3000, () => console.log("running"));
+}, app).listen(3000, () => console.log("running"));
