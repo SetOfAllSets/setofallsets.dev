@@ -10,7 +10,7 @@ let list = getList();
     list = await list;
     let table = document.createElement("table");
     let tbody = document.createElement("tbody");
-    for (let i = 1; i <= list.posts; i++) {
+    for (let i = list.posts; i > 0; i--) {
         let tr = document.createElement("tr");
         let number = document.createElement("td");
         let link = document.createElement("td");
