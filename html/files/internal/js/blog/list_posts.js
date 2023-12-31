@@ -1,5 +1,10 @@
 async function getList() {
-    let response = await fetch("https://api." + hostname + ":3000/api/blog_post_list");
+    let response;
+    try {
+        response = await fetch("https://api." + hostname + ":3000/api/blog_post_list");
+    } catch {
+        response = await fetch("http://" + hostname + ":3000/api/blog_post_list");
+    }
     response = await response;
     let list = await response.json();
     return list;

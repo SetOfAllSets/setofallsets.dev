@@ -6,8 +6,13 @@ const fs = require('fs');
 const app = express();
 var cors = require('cors');
 
-var privateKey = fs.readFileSync( '/etc/letsencrypt/live/setofallsets.dev/privkey.pem' );
-var certificate = fs.readFileSync( '/etc/letsencrypt/live/setofallsets.dev/fullchain.pem' );
+try {
+    var privateKey = fs.readFileSync( '/etc/letsencrypt/live/setofallsets.dev/privkey.pem' );
+    var certificate = fs.readFileSync( '/etc/letsencrypt/live/setofallsets.dev/fullchain.pem' );
+    usingHttps = 1;
+} catch {
+    usingHttps = 0;
+}
 
 app.use(cors());
 
@@ -33,14 +38,20 @@ function list_dir (directoryPath) {
 
 list_dir("/var/www/html/blog/posts/");
 
+if(usingHttps) {
+    https.createServer({
+        key: privateKey,
+        cert: certificate
+    }, app).listen(3000, () => console.log("running"));
+} else {
+    app.listen(3000, () => console.log("running"));
+}
+
 app.get('/api/blog_post_list', (req, res) => res.json(list));
-https.createServer({
-    key: privateKey,
-    cert: certificate
-}, app).listen(3000, () => console.log("running"));
+
 app.options('*', function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader('Access-Control-Allow-Methods', '*');
     res.setHeader("Access-Control-Allow-Headers", "*");
     res.end();
-  });
+});
